@@ -32,29 +32,55 @@
             <h2>My Projects</h2>
             <div class="projects-grid">
                 
-                <div class="project-card">
+                <div class="project-card" onclick="openModal('modal1')">
                     <h3>ICD-9 to SNOMED CT Link prediction AI Agent</h3>
-                    <p>Generated synthetic data for translating medical terminologies using the DSPy library. Calculated confidence
-                        scores to evaluate the translated SNOMED CT terms</p>
-                    <a href="https://github.com/yourusername/project1" target="_blank" class="project-link">View Project →</a>
+                    <p>Generated synthetic data for translating....</p>
+                    <span class="view-details">View Details →</span>
                 </div>
 
-                <div class="project-card">
+                <div class="project-card" onclick="openModal('modal2')">
                     <h3>Drone Stability simulation on MATLAB</h3>
-                    <p>Combined model predictive control and reinforcement learning in a drone control system. Goal is to simulate
-                        a digital twin quadcopter to control a real quadcopter</p>
-                    <a href="https://github.com/yourusername/project2" target="_blank" class="project-link">View Project →</a>
+                    <p>Combined model predictive control and reinforcement....</p>
+                    <span class="view-details">View Details →</span>
                 </div>
 
-                <div class="project-card">
+                <div class="project-card" onclick="openModal('modal3')">
                     <h3>Classification of real and Fake News</h3>
-                    <p>Built a model to classify real and fake news using spacy python library. Achieved a 99% accuracy on the test set</p>
-                    <a href="https://github.com/yourusername/project3" target="_blank" class="project-link">View Project →</a>
+                    <p>Built a model to classify real and fake news using....</p>
+                    <span class="view-details">View Details →</span>
                 </div>
 
             </div>
         </div>
 
+    </div>
+
+    <!-- Modal Popups -->
+    <div id="modal1" class="modal">
+        <div class="modal-content">
+            <span class="close-btn" onclick="closeModal('modal1')">&times;</span>
+            <h2>ICD-9 to SNOMED CT Link prediction AI Agent</h2>
+            <p>Generated synthetic data for translating medical terminologies using the DSPy library. Calculated confidence scores to evaluate the translated SNOMED CT terms. This project demonstrates the application of AI in healthcare terminology translation.</p>
+            <a href="https://github.com/adinathdundi/project1" target="_blank" class="modal-link">View on GitHub →</a>
+        </div>
+    </div>
+
+    <div id="modal2" class="modal">
+        <div class="modal-content">
+            <span class="close-btn" onclick="closeModal('modal2')">&times;</span>
+            <h2>Drone Stability simulation on MATLAB</h2>
+            <p>Combined model predictive control and reinforcement learning in a drone control system. Goal is to simulate a digital twin quadcopter to control a real quadcopter. This project showcases advanced control systems and simulation techniques.</p>
+            <a href="https://github.com/adinathdundi/project2" target="_blank" class="modal-link">View on GitHub →</a>
+        </div>
+    </div>
+
+    <div id="modal3" class="modal">
+        <div class="modal-content">
+            <span class="close-btn" onclick="closeModal('modal3')">&times;</span>
+            <h2>Classification of real and Fake News</h2>
+            <p>Built a model to classify real and fake news using spacy python library. Achieved a 99% accuracy on the test set. This project demonstrates natural language processing and machine learning techniques for misinformation detection.</p>
+            <a href="https://github.com/adinathdundi/project3" target="_blank" class="modal-link">View on GitHub →</a>
+        </div>
     </div>
 
     <script>
@@ -76,6 +102,24 @@
 
             // Add active class to clicked button
             event.target.classList.add('active');
+        }
+
+        function openModal(modalId) {
+            document.getElementById(modalId).style.display = 'flex';
+            document.body.style.overflow = 'hidden'; // Prevent background scrolling
+        }
+
+        function closeModal(modalId) {
+            document.getElementById(modalId).style.display = 'none';
+            document.body.style.overflow = 'auto'; // Restore scrolling
+        }
+
+        // Close modal when clicking outside the modal content
+        window.onclick = function(event) {
+            if (event.target.classList.contains('modal')) {
+                event.target.style.display = 'none';
+                document.body.style.overflow = 'auto';
+            }
         }
     </script>
 </body>
