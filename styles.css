@@ -11,32 +11,97 @@ body {
     min-height: 100vh;
     display: flex;
     justify-content: center;
-    align-items: center;
+    align-items: flex-start;
     padding: 20px;
 }
 
 .container {
     background-color: transparent;
     border-radius: 20px;
-    box-shadow: None;
-    padding: 140px 40px;
+    box-shadow: none;
+    padding: 20px 40px;
     max-width: 900px;
     width: 100%;
     text-align: center;
 }
+
+/* Navigation Tabs */
+.tabs {
+    display: flex;
+    gap: 10px;
+    border-bottom: 2px solid rgba(255, 255, 255, 0.3);
+    padding-bottom: 10px;
+}
+
+.tab-button {
+    background: transparent;
+    border: none;
+    color: white;
+    font-size: 1.2em;
+    font-weight: 500;
+    padding: 10px 20px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    border-bottom: 3px solid transparent;
+}
+
+.tab-button:hover {
+    background: rgba(255, 255, 255, 0.1);
+    border-radius: 5px;
+}
+
+.tab-button.active {
+    border-bottom: 3px solid white;
+    font-weight: 600;
+}
+
+/* Tab Content */
+.tab-content {
+    display: none;
+    animation: fadeIn 0.5s;
+}
+
+.tab-content.active {
+    display: block;
+}
+
+@keyframes fadeIn {
+    from { opacity: 0; }
+    to { opacity: 1; }
+}
+
+/* Summary Section */
+.summary-section {
+    margin-top: 40px;
+    text-align: left;
+}
+
+.summary-section h2 {
+    color: white;
+    font-size: 2em;
+    margin-bottom: 20px;
+}
+
+.summary-section p {
+    color: white;
+    font-size: 1.1em;
+    line-height: 1.8;
+}
+
 
 .profile-section {
     display: flex;
     flex-direction: row;
     align-items: center;
     justify-content: flex-start;
-    gap: 30px;
+    gap: 40px;
     text-align: left;
+    margin-bottom: 40px;
 }
 
 .profile-image {
-    width: 100px;
-    height: 100px;
+    width: 120px;
+    height: 120px;
     border-radius: 50%;
     object-fit: cover;
     border: 5px solid #667eea;
@@ -44,41 +109,45 @@ body {
     flex-shrink: 0;
 }
 
+.profile-content {
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+}
+
 .profile-text {
     flex: 1;
 }
 
 h1 {
-    font-size: 1.9em;
-    color: #f6efef;
+    font-size: 2.5em;
+    color: white;
     margin-bottom: 20px;
     font-weight: 600;
 }
 
 .intro {
-    font-size: 1.2em;
-    color: #f7f7f7;
+    font-size: 1.5em;
+    color: white;
+    font-weight: 600;
+    margin: 0;
+}
     line-height: 1.8;
 }
 
 /* Projects Section */
-.projects-section {
-    margin-top: 50px;
-    width: 100%;
-}
-
-.projects-section h2 {
-    font-size: 2em;
-    color: #dfdada;
-    margin-bottom: 30px;
-    text-align: center;
-}
-
 .projects-grid {
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
     gap: 25px;
     margin-top: 20px;
+}
+
+#projects h2 {
+    font-size: 2em;
+    color: white;
+    margin-bottom: 30px;
+    text-align: center;
 }
 
 .project-card {
@@ -130,6 +199,11 @@ h1 {
     .profile-section {
         flex-direction: column;
         text-align: center;
+        align-items: center;
+    }
+
+    .profile-content {
+        align-items: center;
     }
     
     h1 {
@@ -137,7 +211,7 @@ h1 {
     }
     
     .intro {
-        font-size: 1.1em;
+        font-size: 1.3em;
     }
     
     .profile-image {
@@ -145,7 +219,17 @@ h1 {
         height: 100px;
     }
 
-    .projects-section h2 {
+    .tabs {
+        justify-content: center;
+    }
+
+    .tab-button {
+        font-size: 1em;
+        padding: 8px 15px;
+    }
+
+    #projects h2,
+    .summary-section h2 {
         font-size: 1.6em;
     }
 
